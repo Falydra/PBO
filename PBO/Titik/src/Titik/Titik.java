@@ -1,9 +1,13 @@
 package Titik;
 
 
-//Nama: Daffa Aly Meganendra
-//NIM : 24060122140140
-//LAB : C2
+/**
+ * File      : Titik.java		01/03/23
+ * Nama penulis   : Daffa Aly Meganendra
+ * NIM               : 24060122140140
+ * Deskripsi : Kelas yang berisi main dari Titik
+ * 
+ */
 
 public class Titik {
 	int absis;
