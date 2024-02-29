@@ -1,41 +1,52 @@
-import java.lang.Math;
-
 public class Garis {
-    Titik P1 = new Titik();
-    Titik P2 = new Titik();
+    private Titik titikAwal;
+    private Titik titikAkhir;
 
-
-    public Garis (Titik P1, Titik P2) {
-        this.P1 = P1;
-        this.P2 = P2;
+    public Garis(Titik titikAwal, Titik titikAkhir) {
+        this.titikAwal = titikAwal;
+        this.titikAkhir = titikAkhir;
     }
 
-
-    double getPanjang(Titik A, Titik B){
-        double P = Math.pow(B.absis - A.absis, 2);
-        double Q = Math.pow(B.ordinat - A.ordinat, 2);
-        return Math.sqrt(P + Q);
-
-
+    public Titik getTitikAwal() {
+        return titikAwal;
     }
 
-    double getGradien(Titik A, Titik B) {
-        double Pem = B.ordinat - A.ordinat;
-        double Pen =  B.absis - A.absis;
-
-        return  Pem/Pen;
+    public Titik getTitikAkhir() {
+        return titikAkhir;
     }
 
-    double getRefleksiY(Titik A) {
-        return A.absis * (-1);
+    public void setTitikAwal(Titik titikAwal) {
+        this.titikAwal = titikAwal;
     }
 
-    boolean isTegakLurus(Garis G1, Garis G2) {
-        return G1.getGradien(P1, P2) * G2.getGradien(P1, P2) == -1;
+    public void setTitikAkhir(Titik titikAkhir) {
+        this.titikAkhir = titikAkhir;
     }
 
+    public double getPanjang() {
+        double dx = titikAkhir.getAbsis() - titikAwal.getAbsis();
+        double dy = titikAkhir.getOrdinat() - titikAwal.getOrdinat();
+        return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+    }
 
+    public double getGradien() {
+        double dx = titikAkhir.getAbsis() - titikAwal.getAbsis();
+        double dy = titikAkhir.getOrdinat() - titikAwal.getOrdinat();
+       
+         return dy / dx;
+   
+    }
 
+    public Garis getRefleksiY() {
+        Titik titikAwalRefleksi = titikAwal.getRefleksiY();
+        Titik titikAkhirRefleksi = titikAkhir.getRefleksiY();
+        return new Garis(titikAwalRefleksi, titikAkhirRefleksi);
+    }
 
-
+    public boolean isTegakLurus(Garis G) {
+        double gradien1 = this.getGradien();
+        double gradien2 = G.getGradien();
+   
+        return (gradien1 * gradien2) == -1;
+    }
 }
