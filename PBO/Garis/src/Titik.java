@@ -20,51 +20,40 @@ public class Titik {
         this(0,0 );
     }
 
-    void setAbsis(double abs){
+    public void setAbsis(double abs){
         absis = abs;
     }
 
-    void setOrdinat(double ord) {
+    public void setOrdinat(double ord) {
         ordinat = ord;
     }
 
-    double getOrdinat() {
+    public double getOrdinat() {
         return ordinat;
     }
 
-    double getAbsis () {
+    public double getAbsis () {
         return absis;
     }
 
-    double getJarakPusat(Titik P1, Titik P2) {
-        double A = (P2.absis - P1.absis);
-        double B = (P2.ordinat - P1.ordinat);
-        return Math.sqrt(Math.pow(A, 2) +  Math.pow(B, 2));
-    }
+  public double getJarakPusat() {
+      return Math.sqrt(Math.pow(absis, 2) + Math.pow(ordinat, 2));
+  }
 
-    void refleksiX(Titik titik) {
-        double ordinat = titik.getOrdinat();
-        ordinat = ordinat * (-1);
-        titik.setOrdinat(ordinat);
-    }
+  public void refleksiX() {
+      ordinat *= -1;
+  }
 
-     void refleksiY(Titik titik) {
-         double absis = titik.getAbsis();
-         absis = absis * (-1);
-         titik.setAbsis(absis);
-    }
+  public void refleksiY() {
+      absis *= -1;
+  }
 
-    double getRefleksiX() {
-        return this.ordinat = ordinat * (-1);
-    }
+  public Titik getRefleksiX() {
+      return new Titik(absis, -ordinat);
+  }
 
-    double getRefleksiY(){
-        return this.absis = absis * (-1);
-    }
+  public Titik getRefleksiY() {
+      return new Titik(-absis, ordinat);
+  }
 
 }
-
-
-
-
-
