@@ -5,6 +5,7 @@ import java.util.Scanner;
  * Nama: Daffa Aly Meganendra
  * NIM : 24060122140140
  */
+
 public class MLingkaran {
     public static void main(String[]args){
         Scanner scan = new Scanner(System.in);
